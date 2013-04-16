@@ -69,7 +69,7 @@ sudo chmod +x /usr/local/bin/sbt
 
 #### GDAL - Geospatial Data Abstraction Library
 
-GDAL is used by to convert your raster files to the GeoTIFF format that will be subsequently converted to the [Azavea Raster Grid (ARG)](https://github.com/geotrellis/geotrellis/wiki/ARG-Specification) format. 
+GDAL is used by to convert your raster files to the GeoTIFF format that will be subsequently converted to the [Azavea Raster Grid (ARG)](https://github.com/geotrellis/geotrellis/wiki/ARG-Specification) format. It is also used by PostgreSQL/PostGIS for raster support.
 
 ```bash
 sudo svn checkout https://svn.osgeo.org/gdal/trunk/gdal /opt/gdal
@@ -84,15 +84,16 @@ sudo ./configure && sudo make && sudo make install
 GEOS is used by PostgreSQL/PostGIS to process vector operations on your spatial data.
 
 ```bash
+cd ~
 wget http://download.osgeo.org/geos/geos-3.3.8.tar.bz2
-tar xvfj geos-3.3.8.tar.bz2 -C /opt/
+tar xvf geos-3.3.8.tar.bz2 -C /opt/
 cd /opt/geos-3.3.8
 sudo ./configure && sudo make && sudo make install
 ```
 
 #### PostgreSQL/PostGIS
 
-Install the prequisite packages and dependicies.
+Install PostgreSQL and its dependicies.
 
 ```bash
 sudo apt-get install build-essential postgresql-9.1 postgresql-server-dev-9.1 libxml2-dev libproj-dev libjson0-dev xsltproc docbook-xsl docbook-mathml
@@ -104,5 +105,13 @@ Add support for PostGIS Raster.
 sudo apt-get install libgdal1-dev
 ```
 
-Download and build 
+Download and build PostGIS
+
+```bash
+cd ~
+wget http://download.osgeo.org/postgis/source/postgis-2.0.3.tar.gz
+sudo tar xfvz postgis-2.0.3.tar.gz -C /opt/
+cd /opt/postgis-2.0.3
+sudo ./configure && sudo make && sudo make install
+```
 #### Geotrellis
