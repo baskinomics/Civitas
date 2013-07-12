@@ -1,0 +1,21 @@
+{
+ "catalog": "Catalog of Chattanooga data",
+ "stores": [
+  {
+   "store": "chatta:albers",
+   "params": {
+     "type": "fs",
+     "path": "data/arg_albers",
+     "cacheAll": "yes"
+    }
+  },
+  {
+   "store": "chatta:wm",
+   "params": {
+     "type": "fs",
+     "path": "data/arg_wm",
+     "cacheAll": "yes"
+    }
+  }
+ ]
+}
